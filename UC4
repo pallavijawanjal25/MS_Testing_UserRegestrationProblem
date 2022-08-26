@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace UserRegistration_MS_Testing
+{
+  public static string Regex_LastName = "^[A-Z][a-z]{2,}$";
+  
+        //UC4
+        
+          public bool ValidateMobileNumber(string mobile)
+        {
+            try
+            {
+                if (Regex.IsMatch(mobile, Regex_MobileNumber))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (NullReferenceException)
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.Empty_Message, "Mobile number should not be empty.");
+
+            }
+        }
